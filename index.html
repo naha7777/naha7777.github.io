@@ -1,33 +1,26 @@
-<!DOCTYPE HTML>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device=width, initial-scale=1.0">
-  <title>My Portfolio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ana Charpentier – Portfolio</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <header>
-    <p>Ana Charpentier - Developer</p>
+    <p class="role">Ana Charpentier · Developer</p>
     <h1>Explore my projects</h1>
   </header>
-  
-  <main>
-    <section>
-      <h2>About Me</h2>
-      <p>Hello, I am Ana Charpentier, student at 42 Le Havre learning development.</p>
-    </section>
-    
-    <section>
-      <h2>Projects</h2>
-      <ul>
-        <li><strong>Transcendence</strong> - Web game</li>
-      </ul>
-    </section>
+
+  <main class="carousel">
+    <button id="prev" class="arrow" aria-label="Previous project">&#8249;</button>
+    <div class="slides" id="slides"></div>
+    <button id="next" class="arrow" aria-label="Next project">&#8250;</button>
   </main>
-  
-  <footer>
-    <p>Connect with me on <a href="https://github.com/naha7777">GitHub</a></p>
-  </footer>
+
+  <footer>© Ana Charpentier</footer>
+
+  <script src="projects.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
