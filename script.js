@@ -29,6 +29,7 @@ function buildSlide(project) {
 
   const images = [];
   const dots = [];
+  const state = { el: slide, images, dots, index: 0 };
   if (project.images && project.images.length) {
     const gallery = document.createElement("div");
     gallery.className = "gallery";
@@ -45,6 +46,10 @@ function buildSlide(project) {
 
       const dot = document.createElement("span");
       dot.className = "dot" + (i === 0 ? " active" : "");
+      dot.addEventListener("click", () => {
+        showImage(state, i);
+        restartTimer();
+      });
       dotsBox.append(dot);
       dots.push(dot);
     });
@@ -54,7 +59,7 @@ function buildSlide(project) {
 
   slide.append(top, body);
   container.append(slide);
-  return { el: slide, images, dots, index: 0 };
+  return state;
 }
 
 projects.forEach(p => slides.push(buildSlide(p)));
@@ -65,19 +70,27 @@ function show(i) {
   slides[current].el.classList.add("active");
 }
 
-function nextImage() {
-  const s = slides[current];
-  if (s.images.length < 2) return;
+function showImage(s, i) {
   s.images[s.index].classList.remove("active");
   s.dots[s.index].classList.remove("active");
-  s.index = (s.index + 1) % s.images.length;
+  s.index = (i + s.images.length) % s.images.length;
   s.images[s.index].classList.add("active");
   s.dots[s.index].classList.add("active");
 }
 
-let timer = setInterval(nextImage, IMAGE_DELAY);
+function nextImage() {
+  const s = slides[current];
+  if (s.images.length > 1) showImage(s, s.index + 1);
+}
+
+let timer;
+function restartTimer() {
+  clearInterval(timer);
+  timer = setInterval(nextImage, IMAGE_DELAY);
+}
+restartTimer();
 container.addEventListener("mouseenter", () => clearInterval(timer));
-container.addEventListener("mouseleave", () => { timer = setInterval(nextImage, IMAGE_DELAY); });
+container.addEventListener("mouseleave", restartTimer);
 
 document.getElementById("next").addEventListener("click", () => show(current + 1));
 document.getElementById("prev").addEventListener("click", () => show(current - 1));
