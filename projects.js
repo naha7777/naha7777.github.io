@@ -3,7 +3,7 @@ const projects = [
     title: "PacMan",
     language: "Python",
     description: `Purpose : recreate Pac-Man as a team.
-    
+
     My role : renderer referent.
 
     In this project, I was responsible for verifying the configuration file, managing the graphics and menu navigation (such as character creation), displaying the appropriate overlays, and developing the algorithm for a ghost.`,
@@ -22,7 +22,12 @@ const projects = [
   {
     title: "A-Maze-Ing",
     language: "Python",
-    description: "Description.",
+    description: `Purpose : create a program dedicated to generate and visualize mazes as a team.
+    
+    My role : maze generator.
+    
+    In this project, I was responsible for maze generation on standard output and on python arcade. I also created a game that involves wandering through a maze to find the exit.
+    The user can regenerate a maze, change the colors, and show or hide the shortest path to solve the puzzle. The user can also reproduce the same maze by using the seed and put it in the configuration file.`,
     images: [
       "screen/amazing/output.png",
       "screen/amazing/path.png",
@@ -39,7 +44,11 @@ const projects = [
   {
     title: "Transcendence",
     language: "HTML5, CSS, JavaScript, Vue.js",
-    description: "Description.",
+    description: `Purpose : create a full-stack web application as a team.
+    
+    My role : front-end.
+    
+    In this project, I was responsible for the user interface design and integration, management of the application’s global state, real-time communication via WebSockets, and interaction with the back-end API (Fetch API).`,
     images: [
       "screen/transcendence/add_friend.png",
       "screen/transcendence/avatar.png",
@@ -61,7 +70,9 @@ const projects = [
   {
     title: "Fly-In",
     language: "Python",
-    description: "Description.",
+    description: `Purpose : guide safely drones from a start zone to an end zone in the fewest possible simulation turns.
+    
+    In this project, I had to check that a valid path exist, write an algorithm (Edmonds-Karp), respect the specific movements rules of each zone type and create a graphical interface.`,
     images: [
       "screen/flyin/easy.png",
       "screen/flyin/easy_end.png",
@@ -71,14 +82,6 @@ const projects = [
       "screen/flyin/hard.png",
       "screen/flyin/hard_end.png",
       "screen/flyin/hard_output.png",
-    ]
-  },
-  {
-    title: "Inception",
-    language: "Docker, Virtual Machine",
-    description: "Description.",
-    images: [
-      "images/projet2.jpg"
     ]
   }
 ];
