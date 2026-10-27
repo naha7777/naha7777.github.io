@@ -23,6 +23,7 @@ header .role {
 }
 header h1 { margin: 0.5rem 0 0; font-size: 2.4rem; }
 
+/* Carrousel : flèche | slide | flèche */
 .carousel {
   display: flex;
   align-items: center;
@@ -81,8 +82,9 @@ header h1 { margin: 0.5rem 0 0; font-size: 2.4rem; }
   flex: 1;
 }
 .slide-text { font-size: 1.05rem; }
-.slide-text p { margin: 0; white-space: pre-line;}
+.slide-text p { margin: 0; white-space: pre-line; }
 
+/* Images qui défilent */
 .gallery {
   position: relative;
   aspect-ratio: 16 / 10;
@@ -111,11 +113,13 @@ header h1 { margin: 0.5rem 0 0; font-size: 2.4rem; }
   gap: 6px;
 }
 .dot {
-  width: 9px;
-  height: 9px;
+  width: 12px;
+  height: 12px;
   border-radius: 50%;
   background: rgba(0, 0, 0, 0.3);
+  cursor: pointer;
 }
+.dot:hover { background: rgba(0, 0, 0, 0.6); }
 .dot.active { background: #0969da; }
 
 footer {
@@ -132,3 +136,23 @@ footer {
   .slide { padding: 1rem; }
   .slide-body { grid-template-columns: 1fr; }
 }
+
+/* Bouton de langue */
+header { position: relative; }
+.lang-switch {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  display: flex;
+  gap: 0.3rem;
+}
+.lang-switch button {
+  background: transparent;
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  border-radius: 6px;
+  padding: 0.2rem 0.7rem;
+  font-size: 0.85rem;
+  cursor: pointer;
+}
+.lang-switch button.active { background: #fff; color: #24292f; }
