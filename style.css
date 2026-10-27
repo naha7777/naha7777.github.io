@@ -23,7 +23,6 @@ header .role {
 }
 header h1 { margin: 0.5rem 0 0; font-size: 2.4rem; }
 
-/* Carrousel : flèche | slide | flèche */
 .carousel {
   display: flex;
   align-items: center;
@@ -61,21 +60,21 @@ header h1 { margin: 0.5rem 0 0; font-size: 2.4rem; }
 
 .slide-top {
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
-  gap: 1rem;
+  gap: 0.5rem 1rem;
 }
 .slide-top h2 { margin: 0; font-size: 2rem; }
 .lang {
   background: #0969da;
   color: #fff;
   padding: 0.25rem 0.9rem;
-  border-radius: 999px;
+  border-radius: 1rem;
   font-size: 0.9rem;
-  white-space: nowrap;
+  line-height: 1.4;
 }
 
-/* L'image flotte à droite : le texte l'entoure, puis passe dessous s'il est long */
 .slide-body {
   display: flow-root;
   flex: 1;
@@ -83,7 +82,6 @@ header h1 { margin: 0.5rem 0 0; font-size: 2.4rem; }
 .slide-text { font-size: 1.05rem; }
 .slide-text p { margin: 0; white-space: pre-line; }
 
-/* Images qui défilent */
 .gallery {
   float: right;
   width: 58%;
@@ -136,10 +134,11 @@ footer {
   .carousel { gap: 0.4rem; padding: 0 0.5rem; }
   .arrow { width: 2.2rem; height: 2.2rem; font-size: 1.4rem; }
   .slide { padding: 1rem; }
+  .slide-top { flex-direction: column; align-items: flex-start; }
+  .slide-top h2 { font-size: 1.5rem; overflow-wrap: anywhere; }
   .gallery { float: none; width: 100%; margin: 0 0 1rem; }
 }
 
-/* Bouton de langue */
 header { position: relative; }
 .lang-switch {
   position: absolute;

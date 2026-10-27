@@ -76,7 +76,7 @@ I was responsible for:
 - enforcing the coding standard,
 - managing project tracking and documentation.
 
-Technologies: Python Arcade library.`,
+Technologies: Python Arcade library, LibreSprite, BeepBox.`,
 
       fr: `Objectif : recréer Pac-Man en équipe de 2.
 
@@ -91,7 +91,7 @@ J’étais chargée de :
 - veiller au respect de la norme,
 - gérer le suivi du projet et sa documentation.
 
-Technologies : bibliothèque Python Arcade.`
+Technologies : bibliothèque Python Arcade, LibreSprite, BeepBox.`
     },
     images: [
       "screen/pacman/arco.png",
