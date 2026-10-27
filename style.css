@@ -75,10 +75,9 @@ header h1 { margin: 0.5rem 0 0; font-size: 2.4rem; }
   white-space: nowrap;
 }
 
+/* L'image flotte à droite : le texte l'entoure, puis passe dessous s'il est long */
 .slide-body {
-  display: grid;
-  grid-template-columns: 1fr 1.4fr;
-  gap: 2rem;
+  display: flow-root;
   flex: 1;
 }
 .slide-text { font-size: 1.05rem; }
@@ -86,6 +85,9 @@ header h1 { margin: 0.5rem 0 0; font-size: 2.4rem; }
 
 /* Images qui défilent */
 .gallery {
+  float: right;
+  width: 58%;
+  margin: 0 0 1rem 2rem;
   position: relative;
   aspect-ratio: 16 / 10;
   background: #eceef1;
@@ -134,7 +136,7 @@ footer {
   .carousel { gap: 0.4rem; padding: 0 0.5rem; }
   .arrow { width: 2.2rem; height: 2.2rem; font-size: 1.4rem; }
   .slide { padding: 1rem; }
-  .slide-body { grid-template-columns: 1fr; }
+  .gallery { float: none; width: 100%; margin: 0 0 1rem; }
 }
 
 /* Bouton de langue */

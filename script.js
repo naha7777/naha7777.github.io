@@ -1,7 +1,5 @@
-const IMAGE_DELAY = 4000; // ms entre deux images
+const IMAGE_DELAY = 4250;
 
-// Textes de l'interface (pour ajouter une langue : ajoute un bloc ici
-// + un bouton dans index.html + une entrée dans chaque description de projects.js)
 const ui = {
   en: {
     title: "Ana Charpentier – Portfolio",
@@ -25,14 +23,12 @@ const container = document.getElementById("slides");
 const slides = [];
 let current = 0;
 
-// Langue : choix mémorisé, sinon langue du navigateur
 let lang = navigator.language.startsWith("fr") ? "fr" : "en";
 try {
   const saved = localStorage.getItem("lang");
   if (saved && ui[saved]) lang = saved;
 } catch (e) {}
 
-// Construit une slide à partir d'un objet de projects.js
 function buildSlide(project) {
   const slide = document.createElement("article");
   slide.className = "slide";
@@ -82,7 +78,7 @@ function buildSlide(project) {
       dots.push(dot);
     });
     if (images.length > 1) gallery.append(dotsBox);
-    body.append(gallery);
+    body.prepend(gallery); 
   }
 
   slide.append(top, body);
@@ -92,7 +88,6 @@ function buildSlide(project) {
 
 projects.forEach(p => slides.push(buildSlide(p)));
 
-// Applique une langue à toute la page
 function setLanguage(l) {
   lang = l;
   try { localStorage.setItem("lang", l); } catch (e) {}
@@ -122,14 +117,12 @@ document.querySelectorAll(".lang-switch button").forEach(b => {
   b.addEventListener("click", () => setLanguage(b.dataset.lang));
 });
 
-// Change de projet
 function show(i) {
   slides[current].el.classList.remove("active");
   current = (i + slides.length) % slides.length;
   slides[current].el.classList.add("active");
 }
 
-// Affiche l'image numéro i d'un projet
 function showImage(s, i) {
   s.images[s.index].classList.remove("active");
   s.dots[s.index].classList.remove("active");
@@ -138,7 +131,6 @@ function showImage(s, i) {
   s.dots[s.index].classList.add("active");
 }
 
-// Image suivante dans le projet affiché
 function nextImage() {
   const s = slides[current];
   if (s.images.length > 1) showImage(s, s.index + 1);
