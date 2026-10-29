@@ -188,5 +188,40 @@ Technologies : bibliothèque Python Arcade.`
       "screen/amazing/other_maze.png",
       "screen/amazing/path_maze.png"
     ]
+  },
+  {
+    title: "NetPractice",
+    language: "Computer Networking",
+    description: {
+      en: `Purpose: an introduction to the fundamentals of computer networking.
+
+    In this project, I had to:
+    - configure IP addresses,
+    - connect devices through a router,
+    - understand the role of a gateway within a network.
+
+    To do this, I configured small-scale networks simulated through a training interface, completing 10 levels.`,
+
+      fr: `Objectif : introduction aux fondamentaux des réseaux informatiques.
+
+    Dans ce projet, j'ai dû :
+    - configurer des adresses IP,
+    - connecter des appareils via un routeur,
+    - comprendre le rôle d'une passerelle au sein d'un réseau.
+
+    Pour cela, j'ai configuré des réseaux à petite échelle simulés dans une interface d'entraînement, en complétant 10 niveaux.`
+    },
+    images: [
+      "screen/netpractice/level1.png",
+      "screen/netpractice/level2.png",
+      "screen/netpractice/level3.png",
+      "screen/netpractice/level4.png",
+      "screen/netpractice/level5.png",
+      "screen/netpractice/level6.png",
+      "screen/netpractice/level7.png",
+      "screen/netpractice/level8.png",
+      "screen/netpractice/level9.png",
+      "screen/netpractice/level10.png",
+    ]
   }
 ];
