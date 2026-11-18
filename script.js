@@ -7,7 +7,10 @@ const ui = {
     heading: "Explore my projects",
     prev: "Previous project",
     next: "Next project",
-    shot: "screenshot"
+    shot: "screenshot",
+    close: "Close",
+    prevImg: "Previous image",
+    nextImg: "Next image"
   },
   fr: {
     title: "Ana Charpentier – Portfolio",
@@ -15,13 +18,24 @@ const ui = {
     heading: "Découvrez mes projets",
     prev: "Projet précédent",
     next: "Projet suivant",
-    shot: "capture d’écran"
+    shot: "capture d’écran",
+    close: "Fermer",
+    prevImg: "Image précédente",
+    nextImg: "Image suivante"
   }
 };
 
 const container = document.getElementById("slides");
 const slides = [];
 let current = 0;
+
+const lightbox = document.getElementById("lightbox");
+const lbImg = document.getElementById("lb-img");
+const lbCounter = document.getElementById("lb-counter");
+const lbClose = document.getElementById("lb-close");
+const lbPrev = document.getElementById("lb-prev");
+const lbNext = document.getElementById("lb-next");
+let lbState = null;
 
 let lang = navigator.language.startsWith("fr") ? "fr" : "en";
 try {
@@ -65,12 +79,16 @@ function buildSlide(project) {
       const img = document.createElement("img");
       img.src = src;
       if (i === 0) img.classList.add("active");
+
+      img.addEventListener("click", () => openLightbox(state, i));
+
       gallery.append(img);
       images.push(img);
 
       const dot = document.createElement("span");
       dot.className = "dot" + (i === 0 ? " active" : "");
-      dot.addEventListener("click", () => {
+      dot.addEventListener("click", (e) => {
+        e.stopPropagation();
         showImage(state, i);
         restartTimer();
       });
@@ -78,7 +96,7 @@ function buildSlide(project) {
       dots.push(dot);
     });
     if (images.length > 1) gallery.append(dotsBox);
-    body.prepend(gallery); 
+    body.prepend(gallery);
   }
 
   slide.append(top, body);
@@ -99,6 +117,9 @@ function setLanguage(l) {
   });
   document.getElementById("prev").setAttribute("aria-label", ui[l].prev);
   document.getElementById("next").setAttribute("aria-label", ui[l].next);
+  lbClose.setAttribute("aria-label", ui[l].close);
+  lbPrev.setAttribute("aria-label", ui[l].prevImg);
+  lbNext.setAttribute("aria-label", ui[l].nextImg);
 
   slides.forEach(s => {
     const d = s.project.description;
@@ -107,6 +128,8 @@ function setLanguage(l) {
       img.alt = s.project.title + " – " + ui[l].shot + " " + (i + 1);
     });
   });
+
+  if (lbState) updateLightbox();
 
   document.querySelectorAll(".lang-switch button").forEach(b => {
     b.classList.toggle("active", b.dataset.lang === l);
@@ -125,10 +148,10 @@ function show(i) {
 
 function showImage(s, i) {
   s.images[s.index].classList.remove("active");
-  s.dots[s.index].classList.remove("active");
+  if (s.dots[s.index]) s.dots[s.index].classList.remove("active");
   s.index = (i + s.images.length) % s.images.length;
   s.images[s.index].classList.add("active");
-  s.dots[s.index].classList.add("active");
+  if (s.dots[s.index]) s.dots[s.index].classList.add("active");
 }
 
 function nextImage() {
@@ -136,10 +159,54 @@ function nextImage() {
   if (s.images.length > 1) showImage(s, s.index + 1);
 }
 
+function openLightbox(state, index) {
+  lbState = state;
+  showImage(lbState, index);
+  updateLightbox();
+  lightbox.classList.add("open");
+  lightbox.setAttribute("aria-hidden", "false");
+  clearInterval(timer);
+}
+
+function closeLightbox() {
+  lightbox.classList.remove("open");
+  lightbox.setAttribute("aria-hidden", "true");
+  lbState = null;
+  restartTimer();
+}
+
+function updateLightbox() {
+  if (!lbState) return;
+  const activeImg = lbState.images[lbState.index];
+  lbImg.src = activeImg.src;
+  lbImg.alt = activeImg.alt;
+
+  const total = lbState.images.length;
+  lbCounter.textContent = total > 1 ? `${lbState.index + 1} / ${total}` : "";
+  lbPrev.style.display = total > 1 ? "" : "none";
+  lbNext.style.display = total > 1 ? "" : "none";
+}
+
+function changeLightboxImage(delta) {
+  if (!lbState || lbState.images.length <= 1) return;
+  showImage(lbState, lbState.index + delta);
+  updateLightbox();
+}
+
+lbClose.addEventListener("click", closeLightbox);
+lbPrev.addEventListener("click", () => changeLightboxImage(-1));
+lbNext.addEventListener("click", () => changeLightboxImage(1));
+
+lightbox.addEventListener("click", (e) => {
+  if (e.target === lightbox) closeLightbox();
+});
+
 let timer;
 function restartTimer() {
   clearInterval(timer);
-  timer = setInterval(nextImage, IMAGE_DELAY);
+  if (!lbState) {
+    timer = setInterval(nextImage, IMAGE_DELAY);
+  }
 }
 restartTimer();
 container.addEventListener("mouseenter", () => clearInterval(timer));
@@ -147,7 +214,14 @@ container.addEventListener("mouseleave", restartTimer);
 
 document.getElementById("next").addEventListener("click", () => show(current + 1));
 document.getElementById("prev").addEventListener("click", () => show(current - 1));
+
 document.addEventListener("keydown", e => {
+  if (lbState) {
+    if (e.key === "Escape") closeLightbox();
+    if (e.key === "ArrowRight") changeLightboxImage(1);
+    if (e.key === "ArrowLeft") changeLightboxImage(-1);
+    return;
+  }
   if (e.key === "ArrowRight") show(current + 1);
   if (e.key === "ArrowLeft") show(current - 1);
 });

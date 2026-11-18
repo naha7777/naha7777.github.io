@@ -3,7 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#05060d">
   <title>Ana Charpentier – Portfolio</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;600;700&family=Exo+2:wght@400;600&display=swap" rel="stylesheet">
+
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -21,6 +27,16 @@
     <div class="slides" id="slides"></div>
     <button id="next" class="arrow" aria-label="Next project">&#8250;</button>
   </main>
+
+  <div id="lightbox" class="lightbox" aria-hidden="true">
+    <button id="lb-close" class="lb-close" aria-label="Fermer">&times;</button>
+    <button id="lb-prev" class="arrow lb-arrow" aria-label="Image précédente">&#8249;</button>
+    <div class="lb-content">
+      <img id="lb-img" src="" alt="">
+      <p id="lb-counter" class="lb-counter"></p>
+    </div>
+    <button id="lb-next" class="arrow lb-arrow" aria-label="Image suivante">&#8250;</button>
+  </div>
 
   <footer>© Ana Charpentier</footer>
 
