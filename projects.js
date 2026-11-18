@@ -352,9 +352,9 @@ The user can:
 - reproduce the same maze by putting its seed in the configuration file,
 - modify maze settings (such as dimensions).
 
-Technologies: Python Arcade library, mypy, flake8, uv, Git, GitHub.`
+Technologies: Python Arcade library, mypy, flake8, uv, Git, GitHub.`,
 
-      fr: `Objectif : créer en équipe de 2 un programme qui génère et visualise des labyrinthes.
+fr: `Objectif : créer en équipe de 2 un programme qui génère et visualise des labyrinthes.
 
 Mon rôle : génération des labyrinthes.
 
@@ -376,7 +376,7 @@ L’utilisateur peut :
 - changer les configurations du labyrinthe (dimensions par exemple).
 
 Technologies : bibliothèque Python Arcade, mypy, flake8, uv, Git, GitHub.`
-    },
+},
     images: [
       "screen/amazing/output.png",
       "screen/amazing/path.png",
