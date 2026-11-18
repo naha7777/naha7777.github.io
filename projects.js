@@ -82,7 +82,7 @@ I was responsible for:
       - moving around the map,
 - the messages sent by the server to players.
 
-Technologies: Goroutines (concurrency).`,
+Technologies: Goroutines (concurrency), Git, GitHub.`,
 
       fr: `Objectif : créer, en équipe de 3, un petit jeu d'aventure multijoueur en mode texte, avec un serveur TCP et deux clients : l'un en ligne de commande (CLI) et l'autre avec une interface graphique (GUI).
 
@@ -102,7 +102,7 @@ J'étais responsable de :
       - se déplacer dans la carte,
 - les messages envoyés par le serveur aux joueurs.
 
-Technologies : goroutines (concurrence).`
+Technologies : goroutines (concurrence), Git, GitHub.`
     },
     images: [
       "screen/TAP/cli.png",
@@ -110,7 +110,7 @@ Technologies : goroutines (concurrence).`
   },
   {
     title: "Inception",
-language: "Docker / Shell",
+language: "Docker / Shell / Virtual Machine",
 description: {
   en: `Purpose: Build, on my own, a small web infrastructure with Docker: three services (NGINX, WordPress with php-fpm, and MariaDB) running in separate containers and connected together.
 
@@ -123,7 +123,7 @@ In this project, I had to:
 - manage the configuration and credentials through an environment file,
 - write the user and developer documentation, and a Makefile to build, start, stop and clean everything.
 
-Technologies: Docker, Docker Compose, NGINX, MariaDB, WordPress, php-fpm, Debian, Shell, Makefile.`,
+Technologies: Docker Compose, NGINX, MariaDB, WordPress, php-fpm, Debian, Shell, Makefile, Git, GitHub.`,
 
   fr: `Objectif : construire, en solo, une petite infrastructure web avec Docker : trois services (NGINX, WordPress avec php-fpm et MariaDB) qui tournent dans des conteneurs séparés et communiquent entre eux.
 
@@ -136,7 +136,7 @@ Dans ce projet, j'ai dû réaliser :
 - la gestion de la configuration et des identifiants via un fichier d'environnement,
 - la rédaction de la documentation utilisateur et développeur, et d'un Makefile pour construire, lancer, arrêter et nettoyer le tout.
 
-Technologies : Docker, Docker Compose, NGINX, MariaDB, WordPress, php-fpm, Debian, Shell, Makefile.`
+Technologies : Docker Compose, NGINX, MariaDB, WordPress, php-fpm, Debian, Shell, Makefile, Git, GitHub.`
 }
   },
   {
@@ -152,11 +152,12 @@ Technologies : Docker, Docker Compose, NGINX, MariaDB, WordPress, php-fpm, Debia
     - retrieval: building a BM25 index and returning the k most relevant chunks for a question,
     - answer generation: building the prompt within a token budget and generating the answer with Qwen3-0.6B,
     - evaluation: computing Recall@k with an IoU criterion against reference datasets,
-    - a command-line interface with strict argument validation and structured JSON outputs.
+    - a command-line interface with strict argument validation and structured JSON outputs,
+    - write the user and developer documentation, and a Makefile to build and clean everything.
 
     Results: Recall@5 of 0.83 on documentation questions and 0.51 on code questions; indexing of the whole vLLM archive in about 54 seconds.
 
-    Technologies: Python, BM25 (bm25s), Chonkie, Hugging Face Transformers, PyTorch, Pydantic, Python Fire, uv.`,
+    Technologies: BM25 (bm25s), Chonkie, Hugging Face Transformers, PyTorch, Pydantic, Python Fire, uv, Git, GitHub.`,
 
       fr: `Objectif : créer, en projet individuel, un système RAG (Retrieval-Augmented Generation) capable de répondre à des questions sur une vraie base de code (vLLM 0.10.1).
 
@@ -167,11 +168,12 @@ Technologies : Docker, Docker Compose, NGINX, MariaDB, WordPress, php-fpm, Debia
     - la recherche : construction d'un index BM25 et renvoi des k chunks les plus pertinents pour une question,
     - la génération des réponses : construction du prompt dans la limite de tokens et génération de la réponse avec Qwen3-0.6B,
     - l'évaluation : calcul du Recall@k avec un critère d'IoU par rapport à des jeux de données de référence,
-    - une interface en ligne de commande avec validation stricte des arguments et sorties JSON structurées.
+    - une interface en ligne de commande avec validation stricte des arguments et sorties JSON structurées,
+    - la rédaction de la documentation, et d'un Makefile pour construire et nettoyer le tout.
 
     Résultats : Recall@5 de 0,83 sur les questions de documentation et de 0,51 sur les questions de code ; indexation de toute l'archive vLLM en environ 54 secondes.
 
-    Technologies : Python, BM25 (bm25s), Chonkie, Hugging Face Transformers, PyTorch, Pydantic, Python Fire, uv.`
+    Technologies : BM25 (bm25s), Chonkie, Hugging Face Transformers, PyTorch, Pydantic, Python Fire, uv, Git, GitHub.`
   }
   },
   {
@@ -191,7 +193,7 @@ I was responsible for:
 - enforcing the coding standard,
 - managing project tracking and documentation.
 
-Technologies: Python Arcade library, LibreSprite, BeepBox.`,
+Technologies: Python Arcade library, LibreSprite, BeepBox, uv, mypy, flake8, Git, GitHub.`,
 
       fr: `Objectif : recréer Pac-Man en équipe de 2.
 
@@ -206,7 +208,7 @@ J’étais chargée de :
 - veiller au respect de la norme,
 - gérer le suivi du projet et sa documentation.
 
-Technologies : bibliothèque Python Arcade, LibreSprite, BeepBox, uv.`
+Technologies : bibliothèque Python Arcade, LibreSprite, BeepBox, uv, mypy, flake8, Git, GitHub.`
     },
     images: [
       "screen/pacman/arco.png",
@@ -232,9 +234,10 @@ In this project, I had to:
 - design the prompts so that the model picks the right function and stays focused on the request,
 - extract and convert the arguments to the types expected by the function definitions (numbers, strings),
 - parse and validate the input files and command-line arguments,
-- test the project with static typing (mypy), linting (flake8) and the provided grading tool.
+- test the project with static typing (mypy), linting (flake8) and the provided grading tool,
+- write the user and developer documentation, and a Makefile to build and clean everything.
 
-Technologies: Python, Qwen/Qwen3-0.6B (Hugging Face), NumPy, Pydantic, uv, mypy, flake8.`,
+Technologies: Python, Qwen/Qwen3-0.6B (Hugging Face), NumPy, Pydantic, uv, mypy, flake8, Git, GitHub.`,
 
   fr: `Objectif : construire, en solo, un système local d'appel de fonctions : un petit modèle de langage transforme une demande en langage naturel (par exemple « What is the sum of 2 and 3? ») en un appel de fonction structuré au format JSON.
 
@@ -244,9 +247,10 @@ Dans ce projet, j'ai dû réaliser :
 - la conception des prompts pour que le modèle choisisse la bonne fonction et reste concentré sur la demande,
 - l'extraction et la conversion des arguments vers les types attendus par les définitions de fonctions (nombres, chaînes),
 - l'analyse et la validation des fichiers d'entrée et des arguments en ligne de commande,
-- le test du projet avec du typage statique (mypy), du linting (flake8) et l'outil de correction fourni.
+- le test du projet avec du typage statique (mypy), du linting (flake8) et l'outil de correction fourni,
+- la rédaction de la documentation, et d'un Makefile pour construire et nettoyer le tout.
 
-Technologies : Python, Qwen/Qwen3-0.6B (Hugging Face), NumPy, Pydantic, uv, mypy, flake8.`
+Technologies : Python, Qwen/Qwen3-0.6B (Hugging Face), NumPy, Pydantic, uv, mypy, flake8, Git, GitHub.`
 }
   },
   {
@@ -264,9 +268,10 @@ In this project, I had to:
 - handle the cooldown period that makes a dongle unavailable after it is released,
 - write a monitor thread that detects a burnout with a margin of 1 ms and stops the simulation cleanly,
 - serialize the log output so that messages never interleave or appear after the end of the simulation,
-- parse and validate the arguments, and free all resources properly.
+- parse and validate the arguments, and free all resources properly,
+- write the user and developer documentation, and a Makefile to build and clean everything.
 
-Technologies: C, POSIX threads (pthread), mutex, condition variables, Makefile.`,
+Technologies: C, POSIX threads (pthread), mutex, condition variables, Makefile, Git.`,
 
   fr: `Objectif : construire, en solo, une simulation concurrente d'un environnement de développement sous pression, où des codeurs se partagent un nombre limité de ressources et doivent éviter le burnout.
 
@@ -279,9 +284,10 @@ Dans ce projet, j'ai dû réaliser :
 - la gestion du temps de recharge (cooldown) qui rend un dongle indisponible après sa libération,
 - l'écriture d'un thread moniteur qui détecte un burnout avec une marge de 1 ms et arrête proprement la simulation,
 - la sérialisation de l'affichage pour que les messages ne s'entremêlent jamais et n'apparaissent pas après la fin de la simulation,
-- l'analyse et la validation des arguments, ainsi que la libération correcte de toutes les ressources.
+- l'analyse et la validation des arguments, ainsi que la libération correcte de toutes les ressources,
+- la rédaction de la documentation, et d'un Makefile pour construire et nettoyer le tout.
 
-Technologies : C, threads POSIX (pthread), mutex, variables de condition, Makefile.`
+Technologies : C, threads POSIX (pthread), mutex, variables de condition, Makefile, Git.`
 }
   },
   {
@@ -294,9 +300,10 @@ In this project, I had to:
 - check that the configuration file describes a valid path between the start and end zones,
 - implement a pathfinding algorithm (Edmonds-Karp),
 - respect the specific movement rules of each zone type,
-- build a graphical interface.
+- build a graphical interface,
+- write the user and developer documentation, and a Makefile to build and clean everything.
 
-Technologies: Python Arcade library.`,
+Technologies: Python Arcade library, mypy, flake8, uv, Git.`,
 
       fr: `Objectif : guider des drones en toute sécurité d’une zone de départ à une zone d’arrivée, en un minimum de tours de simulation.
 
@@ -304,9 +311,10 @@ Dans ce projet, j’ai dû :
 - vérifier que le fichier de configuration décrit un chemin valide entre les zones de départ et d’arrivée,
 - implémenter un algorithme de recherche de chemin (Edmonds-Karp),
 - respecter les règles de déplacement propres à chaque type de zone,
-- créer une interface graphique.
+- créer une interface graphique,
+- la rédaction de la documentation, et d'un Makefile pour construire et nettoyer le tout.
 
-Technologies : bibliothèque Python Arcade.`
+Technologies : bibliothèque Python Arcade, mypy, flake8, uv, Git.`
     },
     images: [
       "screen/flyin/easy.png",
@@ -328,32 +336,46 @@ Technologies : bibliothèque Python Arcade.`
 My role: maze generation.
 
 I was responsible for:
-- generating mazes both in the terminal (standard output) and in Python Arcade,
-- creating a game in which the player wanders through a maze to find the exit.
+- generating mazes in the terminal (standard output),
+- generating mazes within a graphical user interface,
+- creating a menu to allow the user to manage the display,
+- displaying the path through the maze and toggling its visibility,
+- changing the color of the maze,
+- creating a game in which the player navigates a maze to find the exit,
+- implementing "Easter eggs",
+- write the user and developer documentation, and a Makefile to build and clean everything.
 
 The user can:
 - regenerate the maze,
 - change the colors,
 - show or hide the shortest path to the exit,
-- reproduce the same maze by putting its seed in the configuration file.
+- reproduce the same maze by putting its seed in the configuration file,
+- modify maze settings (such as dimensions).
 
-Technologies: Python Arcade library.`,
+Technologies: Python Arcade library, mypy, flake8, uv, Git, GitHub.`
 
       fr: `Objectif : créer en équipe de 2 un programme qui génère et visualise des labyrinthes.
 
 Mon rôle : génération des labyrinthes.
 
 J’étais chargée de :
-- générer des labyrinthes dans le terminal (sortie standard) et dans Python Arcade,
-- créer un jeu où le joueur parcourt un labyrinthe pour trouver la sortie.
+- générer des labyrinthes dans le terminal (sortie standard),
+- générer des labyrinthes dans une interface graphique,
+- créer un menu pour que l'utilisateur puisse gérer l'affichage,
+- afficher le chemin du labyrinthe et retirer l'affichage,
+- changer la couleur du labyrinthe,
+- créer un jeu où le joueur parcourt un labyrinthe pour trouver la sortie,
+- mettre en place des "Easter eggs",
+- la rédaction de la documentation, et d'un Makefile pour construire et nettoyer le tout.
 
 L’utilisateur peut :
 - régénérer le labyrinthe,
 - changer les couleurs,
 - afficher ou masquer le chemin le plus court vers la sortie,
-- reproduire le même labyrinthe en indiquant sa seed (graine) dans le fichier de configuration.
+- reproduire le même labyrinthe en indiquant sa seed (graine) dans le fichier de configuration,
+- changer les configurations du labyrinthe (dimensions par exemple).
 
-Technologies : bibliothèque Python Arcade.`
+Technologies : bibliothèque Python Arcade, mypy, flake8, uv, Git, GitHub.`
     },
     images: [
       "screen/amazing/output.png",
